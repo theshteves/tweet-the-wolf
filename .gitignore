@@ -1,6 +1,5 @@
 # program files
-response.txt
-request.txt
+venv/
 
 # because security
 keys.py
