@@ -1,8 +1,14 @@
+# program files
+response.txt
+request.txt
+
 # because security
 keys.py
 
 # because Mac
 DS_Store
+
+### default python .gitignore
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
