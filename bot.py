@@ -52,7 +52,7 @@ for status in cursor.items():
     except TweepError as err:
         print("TweepError: " + str(err))
         print()
-        continue
+        break
 
     except KeyError as err:
         print("KeyError: " + str(err))
