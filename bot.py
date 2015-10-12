@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import giphypop
 import json
 import requests
 import sys
@@ -43,11 +44,14 @@ for status in cursor.items():
             print("ANSWER: " + answer)
 
         else:
-            raise TweepError("RequestError: Wolfram|Alpha query was unsuccessful")
+            answer = "@" + status._json["user"]["screen_name"] + " " + giphypop.translate("confused").url
+            api.update_status(status=answer, in_reply_to_status_id = status.id)
+            #raise TweepError("RequestError: Wolfram|Alpha query was unsuccessful")
 
 
     except TweepError as err:
         print("TweepError: " + str(err))
+        print()
         continue
 
     except KeyError as err:
@@ -55,7 +59,13 @@ for status in cursor.items():
         continue
 
     else:
-        api.update_status(status=answer, in_reply_to_status_id = status.id)
+        try:
+            api.update_status(status=answer, in_reply_to_status_id = status.id)
+
+        except TweepError as err:
+            print("TweepError: " + str(err))
+            print()
+            break
 
     finally:
         #print()

@@ -1,6 +1,7 @@
 cffi==1.2.1
 cryptography==1.0.2
 enum34==1.0.4
+giphypop==0.2
 idna==2.0
 ipaddress==1.0.14
 ndg-httpsclient==0.4.0
